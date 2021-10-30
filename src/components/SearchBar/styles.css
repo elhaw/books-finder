@@ -1,0 +1,20 @@
+.search_bar_wrapper {
+  display: flex;
+  justify-content: center;
+}
+.search_btn {
+  border: none;
+  color: white;
+  text-transform: capitalize;
+  background-color: #18cf89;
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  height: 40px;
+}
+.search_input {
+  width: 400px;
+  padding: 0 1rem;
+  color: #857a7e;
+  font-size: 1rem;
+}
