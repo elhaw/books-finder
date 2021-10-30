@@ -1,0 +1,66 @@
+/* font-weight */
+.text-heading {
+  font-weight: bolder;
+}
+.text-title {
+  font-weight: bold;
+}
+.text-noraml {
+  font-weight: noraml;
+}
+
+/* font sizes */
+
+.text-xs {
+  font-size: 12px;
+}
+
+.text-s {
+  font-szie: 14px;
+}
+
+.text-m {
+  font-size: 16px;
+}
+
+.text-lg {
+  font-szie: 20px;
+}
+
+.text-xl {
+  font-size: 28px;
+}
+
+/* colors */
+
+.text-white {
+  color: white;
+}
+
+.text-primary {
+  color: rgb(120, 120, 120);
+}
+.text-primary-shd1 {
+  color: rgb(115, 115, 115);
+}
+
+.text-primary-shd2 {
+  color: rgb(160, 160, 160);
+}
+
+.text-primary-shd-3 {
+  color: rgb(140, 140, 140);
+}
+// text transform
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: low];
+}
