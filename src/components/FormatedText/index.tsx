@@ -1,14 +1,14 @@
 import { FC } from "react";
 import { IFormatedText } from "./IFormatedText";
 import classNames from "classnames";
-import "./style.css";
+import "./styles.css";
 const FormatedText: FC<IFormatedText.IProps> = ({
   text,
   textSize = "M",
   Tag = "p",
   textType = "noraml",
   textColor = "primary",
-  textTransform = "lowercase",
+  textTransform,
 }): JSX.Element => {
   return (
     <Tag
@@ -30,9 +30,10 @@ const FormatedText: FC<IFormatedText.IProps> = ({
         "text-primary-shd3": textColor === "primary_shd3",
         "text-primary-shd4": textColor === "primary_shd4",
         //text ttransform
-        capitalize: textTransform === "capitalize",
-        uppercase: textTransform === "uppercase",
-        lowercase: textTransform === "lowercase",
+        "text-capitalize": textTransform === "capitalize",
+        "text-uppercase": textTransform === "uppercase",
+        "text-lowercase": textTransform === "lowercase",
+        "transform-none": textTransform === "none",
       })}
     >
       {text}

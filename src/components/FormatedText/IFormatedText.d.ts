@@ -10,7 +10,7 @@ declare namespace IFormatedText {
       | "primary_shd2"
       | "primary_shd3"
       | "primary_shd4";
-    textTransform: "capitalize" | "uppercase" | "lowercase";
+    textTransform: "capitalize" | "uppercase" | "lowercase" | "none";
   }
 }
 
