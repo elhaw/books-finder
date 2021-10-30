@@ -1,13 +1,12 @@
 html,
 body {
   height: 100%;
+  background-color: rgb(242, 242, 242);
 }
-
 .App {
   text-align: center;
-  background-color: rgb(242, 242, 242);
-  height: 100%;
   padding: 5rem 0;
+  height: 100vh;
 }
 @media (min-width: 1200px) {
   .container {
