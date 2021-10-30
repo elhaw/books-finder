@@ -1,7 +1,8 @@
 import { useState, useEffect, FC } from "react";
-import { BooksList, SpinnerLoader } from "../..";
+import { BooksList, FormatedText, SpinnerLoader } from "../..";
 import { useGoogleBooksApi } from "../../../util/hooks/useGoogleBooksApi";
 import { IBooksListContainer } from "./IBooksListContainer";
+import "./styles.css";
 const BooksListContainer: FC<IBooksListContainer.IProps> = ({
   searchQuery,
 }): any => {
@@ -32,21 +33,54 @@ const BooksListContainer: FC<IBooksListContainer.IProps> = ({
     );
   }
   if (dataError) {
-    return <h2>error</h2>;
+    return (
+      <div style={{ margin: "2rem 0" }}>
+        <FormatedText
+          text="please check your connection and try again"
+          Tag="h3"
+          textTransform="capitalize"
+          textSize="L"
+          textColor="primary_shd1"
+          textType="title"
+        />
+      </div>
+    );
   }
   if (data) {
+    const { totalItems } = data;
     return (
       <div>
         <BooksList data={data} />
-        <button onClick={getNextPage}>next</button>
-        <button disabled={page < 1} onClick={getPreviousPage}>
-          {" "}
-          previous{" "}
-        </button>
+        {totalItems > 0 && (
+          <div className="pagaination_wrapper">
+            <button
+              className="prev_btn"
+              disabled={page < 1}
+              onClick={getPreviousPage}
+            >
+              {" "}
+              previous{" "}
+            </button>
+            <button className="next_btn" onClick={getNextPage}>
+              next
+            </button>
+          </div>
+        )}
       </div>
     );
   } else {
-    return "search for your favorite book";
+    return (
+      <div style={{ margin: "2rem 0" }}>
+        <FormatedText
+          text="search for your favorite books"
+          Tag="h3"
+          textTransform="capitalize"
+          textSize="L"
+          textColor="primary_shd1"
+          textType="title"
+        />
+      </div>
+    );
   }
 };
 

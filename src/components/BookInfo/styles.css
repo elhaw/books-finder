@@ -1,4 +1,6 @@
 .book_wrapper {
+  cursor: pointer;
+  text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,4 +25,14 @@
 .book_wrapper-info-publisher {
   text-align: left;
   margin: 0.5rem 0;
+}
+.book_more_details {
+  margin: 2rem 0;
+}
+.book_more_details a {
+  color: white;
+  background-color: #18cf89;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  border-radius: 12px;
 }

@@ -4,18 +4,16 @@ import { IBookInfo } from "./IBookInfo";
 import "./styles.css";
 const BookInfo: FC<IBookInfo.IProps> = ({
   title,
-  subtitle,
   authors,
   publisher,
-  publishedDate,
-  description,
   previewLink,
   imageLinks,
 }) => {
-  const { smallThumbnail = "", thumbnail = "" } = imageLinks;
+  const thumbnail = imageLinks?.thumbnail;
+  const smallThumbnail = imageLinks?.smallThumbnail;
   return (
     <div className="book_wrapper">
-      <div className="book_wrapper-image" >
+      <div className="book_wrapper-image">
         <img src={thumbnail || smallThumbnail} alt={title} />
       </div>
       <div className="book_wrapper-info">
@@ -36,7 +34,7 @@ const BookInfo: FC<IBookInfo.IProps> = ({
             textColor="primary_shd2"
             textType="title"
           />
-          {authors.length < 1 && (
+          {authors?.length < 1 && (
             <FormatedText
               text="No authors found"
               Tag="span"
@@ -46,10 +44,11 @@ const BookInfo: FC<IBookInfo.IProps> = ({
               textType="title"
             />
           )}
-          {authors.length > 0 &&
-            authors.map((author) => {
+          {authors?.length > 0 &&
+            authors.map((author, index) => {
               return (
                 <FormatedText
+                  key={index}
                   text={author}
                   Tag="span"
                   textTransform="none"
@@ -70,6 +69,12 @@ const BookInfo: FC<IBookInfo.IProps> = ({
             textColor="primary_shd2"
             textType="title"
           />
+        </div>
+        <div className="book_more_details">
+          <a className="" rel="noreferrer" href={previewLink} target="_blank">
+            {" "}
+            see this book
+          </a>
         </div>
       </div>
     </div>

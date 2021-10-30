@@ -1,37 +1,58 @@
 import { BookInfo } from "../";
+import FormatedText from "../FormatedText";
 import "./styles.css";
 const BooksList = ({ data }) => {
-  const { items } = data;
+  const { items, totalItems } = data;
   return (
-    <div className="all_books_wrapper">
-      {items.map(
-        ({
-          volumeInfo: {
-            title,
-            subtitle,
-            authors,
-            publisher,
-            publishedDate,
-            description,
-            imageLinks,
-            previewLink,
-          },
-        }) => {
-          return (
-            <BookInfo
-              title={title}
-              subtitle={subtitle}
-              authors={authors}
-              publisher={publisher}
-              publishedDate={publishedDate}
-              description={description}
-              imageLinks={imageLinks}
-              previewLink={previewLink}
-            />
-          );
-        }
+    <>
+      {totalItems > 0 && (
+        <div className="all_books_wrapper">
+          {items?.map(
+            (
+              {
+                volumeInfo: {
+                  title,
+                  subtitle,
+                  authors,
+                  publisher,
+                  publishedDate,
+                  description,
+                  imageLinks,
+                  previewLink,
+                },
+              },
+              index
+            ) => {
+              return (
+                <BookInfo
+                  key={index}
+                  title={title}
+                  subtitle={subtitle}
+                  authors={authors}
+                  publisher={publisher}
+                  publishedDate={publishedDate}
+                  description={description}
+                  imageLinks={imageLinks}
+                  previewLink={previewLink}
+                />
+              );
+            }
+          )}
+        </div>
       )}
-    </div>
+      {totalItems < 1 && (
+        <div style={{ margin: "2rem 0" }}>
+          <FormatedText
+            text="no search result found"
+            Tag="span"
+            textTransform="none"
+            textSize="M"
+            textColor="primary_shd2"
+            textType="title"
+          />
+        </div>
+      )}
+    </>
   );
 };
 
