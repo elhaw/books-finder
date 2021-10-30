@@ -1,0 +1,19 @@
+.prev_btn,
+.next_btn {
+  color: white;
+  background-color: #18cf89;
+  padding: 0.5 rem 1.5 rem;
+  text-decoration: none;
+  border-radius: 12px;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  min-width: 100px;
+  margin: 0 0.3rem;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.prev_btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
