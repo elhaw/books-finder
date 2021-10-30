@@ -1,8 +1,9 @@
 import { BookInfo } from "../";
+import "./styles.css";
 const BooksList = ({ data }) => {
   const { items } = data;
   return (
-    <div>
+    <div className="all_books_wrapper">
       {items.map(
         ({
           volumeInfo: {

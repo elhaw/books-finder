@@ -1,9 +1,10 @@
 import { useState, useEffect, FC } from "react";
+import { BooksList, SpinnerLoader } from "../..";
 import { useGoogleBooksApi } from "../../../util/hooks/useGoogleBooksApi";
 import { IBooksListContainer } from "./IBooksListContainer";
 const BooksListContainer: FC<IBooksListContainer.IProps> = ({
   searchQuery,
-}) => {
+}): any => {
   const [page, setPage] = useState(0);
   const { data, loading, dataError, getData } = useGoogleBooksApi(
     `volumes?q=${searchQuery}&startIndex=${page * 10}&maxResults=10`
@@ -24,14 +25,19 @@ const BooksListContainer: FC<IBooksListContainer.IProps> = ({
   }, [page, searchQuery]);
 
   if (loading) {
-    return <h2>loading......</h2>;
+    return (
+      <div style={{ margin: "2rem 0" }}>
+        <SpinnerLoader />
+      </div>
+    );
   }
   if (dataError) {
     return <h2>error</h2>;
   }
-  if (true) {
+  if (data) {
     return (
       <div>
+        <BooksList data={data} />
         <button onClick={getNextPage}>next</button>
         <button disabled={page < 1} onClick={getPreviousPage}>
           {" "}
@@ -39,6 +45,8 @@ const BooksListContainer: FC<IBooksListContainer.IProps> = ({
         </button>
       </div>
     );
+  } else {
+    return "search for your favorite book";
   }
 };
 

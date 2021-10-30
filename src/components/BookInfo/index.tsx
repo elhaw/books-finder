@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { FormatedText } from "../../components";
 import { IBookInfo } from "./IBookInfo";
+import "./styles.css";
 const BookInfo: FC<IBookInfo.IProps> = ({
   title,
   subtitle,
@@ -11,12 +12,12 @@ const BookInfo: FC<IBookInfo.IProps> = ({
   previewLink,
   imageLinks,
 }) => {
+  const { smallThumbnail = "", thumbnail = "" } = imageLinks;
   return (
     <div className="book_wrapper">
-      <div>
-        <img src="" alt="" />
+      <div className="book_wrapper-image" >
+        <img src={thumbnail || smallThumbnail} alt={title} />
       </div>
-
       <div className="book_wrapper-info">
         <FormatedText
           text={title}
@@ -26,6 +27,50 @@ const BookInfo: FC<IBookInfo.IProps> = ({
           textColor="primary_shd1"
           textType="title"
         />
+        <div className="book_wrapper-info-authors">
+          <FormatedText
+            text="by: "
+            Tag="span"
+            textTransform="capitalize"
+            textSize="M"
+            textColor="primary_shd2"
+            textType="title"
+          />
+          {authors.length < 1 && (
+            <FormatedText
+              text="No authors found"
+              Tag="span"
+              textTransform="none"
+              textSize="M"
+              textColor="primary_shd2"
+              textType="title"
+            />
+          )}
+          {authors.length > 0 &&
+            authors.map((author) => {
+              return (
+                <FormatedText
+                  text={author}
+                  Tag="span"
+                  textTransform="none"
+                  textSize="M"
+                  textColor="primary_shd2"
+                  textType="title"
+                />
+              );
+            })}
+        </div>
+
+        <div className="book_wrapper-info-publisher">
+          <FormatedText
+            text={`published by : ${publisher}`}
+            Tag="span"
+            textTransform="capitalize"
+            textSize="M"
+            textColor="primary_shd2"
+            textType="title"
+          />
+        </div>
       </div>
     </div>
   );

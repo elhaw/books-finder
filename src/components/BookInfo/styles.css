@@ -1,0 +1,26 @@
+.book_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 4px;
+}
+.book_wrapper-info {
+  padding: 1rem;
+  text-align: left;
+}
+.book_wrapper-image,
+.book_wrapper-info {
+  flex: 1 1 0;
+}
+.book_wrapper-info-authors {
+  text-align: left;
+  margin: 0.5rem 0;
+}
+
+.book_wrapper-info-publisher {
+  text-align: left;
+  margin: 0.5rem 0;
+}

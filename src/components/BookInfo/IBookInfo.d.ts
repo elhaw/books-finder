@@ -2,7 +2,7 @@ declare namespace IBookInfo {
   export interface IProps {
     title: string;
     subtitle: string;
-    authors: string;
+    authors: Array<string>;
     publisher: string;
     publishedDate: string;
     description: string;
