@@ -36,3 +36,12 @@
   text-decoration: none;
   border-radius: 12px;
 }
+
+@media (max-width: 567px) {
+  .book_more_details a {
+    padding: 0.5rem;
+  }
+  .book_wrapper {
+    flex-direction: column;
+  }
+}
